@@ -6,12 +6,12 @@
   <title>px-datetime-range-field Demo</title>
   <link rel="stylesheet" type="text/css" href="css/px-datetime-range-field-demo.css"/>
   <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-  <link rel="import" href="../marked-element/marked-element.html"/>
   <link rel="import" href="../px-theme/px-theme.html"/>
   <link rel="import" href="../iron-ajax/iron-ajax.html"/>
   <link rel="import" href="px-datetime-range-field.html"/>
   <link rel="icon" href="px-favicon.png" type="image/x-icon"/>
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
 
   <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
 
@@ -59,31 +59,31 @@
       <div class="properties u-ph+ u-pb+  u-mt++ u-mr++">
         <p class="epsilon">Properties</p>
         <div class="flex u-mb-">
-          <input id="toggleTime" class="toggle__input toggle__input--small" type="checkbox" checked="{{hideTime::change}}">
+          <input id="toggleTime" class="toggle__input toggle__input--small" type="checkbox" checked="{{elemProps.hideTime::change}}">
           <label for="toggleTime" class="toggle__label toggle__label--small"></label>
           <div class="u-ml-">Hide time</div>
         </div>
         <div class="flex u-mb-">
-          <input id="toggleDate" class="toggle__input toggle__input--small" type="checkbox" checked="{{hideDate::change}}">
+          <input id="toggleDate" class="toggle__input toggle__input--small" type="checkbox" checked="{{elemProps.hideDate::change}}">
           <label for="toggleDate" class="toggle__label toggle__label--small"></label>
           <div class="u-ml-">Hide date</div>
         </div>
         <div class="flex u-mb-">
-          <input id="toggleButtons" class="toggle__input toggle__input--small" type="checkbox" checked="{{showButtons::change}}">
+          <input id="toggleButtons" class="toggle__input toggle__input--small" type="checkbox" checked="{{elemProps.showButtons::change}}">
           <label for="toggleButtons" class="toggle__label toggle__label--small"></label>
           <div class="u-ml-">Show buttons</div>
         </div>
         <div class="flex u-mb-">
-          <input id="toggleFutureDates" class="toggle__input toggle__input--small" type="checkbox" checked="{{blockFutureDates}}::change">
+          <input id="toggleFutureDates" class="toggle__input toggle__input--small" type="checkbox" checked="{{elemProps.blockFutureDates::change}}">
           <label for="toggleFutureDates" class="toggle__label toggle__label--small"></label>
           <div class="u-ml-">Block future dates</div>
         </div>
-        <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{dateFormat::input}}"></input></div>
-        <div class="u-mb-">Time format: <input id="timeFormat" class="text-input" type="text" placeholder="hh:mm:ss A" value="{{timeFormat::input}}"></input></div>
-        <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{timeZone::input}}"></input></div>
+        <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{elemProps.dateFormat::input}}"></input></div>
+        <div class="u-mb-">Time format: <input id="timeFormat" class="text-input" type="text" placeholder="hh:mm:ss A" value="{{elemProps.timeFormat::input}}"></input></div>
+        <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{elemProps.timeZone::input}}"></input></div>
         <div class="u-mb-">Show time zone:
           <div style="width: 100%;">
-            <px-dropdown id="showTimeZone" value="{{showTimeZone}}" display-value="text">
+            <px-dropdown id="showTimeZone" value="{{elemProps.showTimeZone}}" display-value="text">
               <px-dropdown-content
                 items='[
                   {"key":"one", "val": "none"},
@@ -126,76 +126,33 @@
       </div>
     </div>
 
+<px-demo-snippet
+  element-properties={{elemProps}}
+  element-name="px-datetime-range-field">
+</px-demo-snippet>
   </template>
+<script>
+window.addEventListener('WebComponentsReady', function() {
+  console.log("wcr");
+var template = document.querySelector('template[is=dom-bind]'),
+    range = {"from":"2016-07-07T23:14:18+00:00", "to":"2016-08-07T23:14:18+00:00"};
 
+template.elemProps = {
+  "range":JSON.stringify(range),
+  "dateFormat":"YYYY/MM/DD",
+  "timeFormat":"hh:mm:ss A",
+  "showButtons":false,
+  "blockFutureDates":true,
+  "hideTime":false,
+  "hideDate":false,
+  "showTimeZone":"text",
+  "isValid":true,
+  "timeZone":"America/Los_Angeles"
 
-  <!-- demo with code -->
-  <div class="u-p++">
-    <h2>Demo with code</h2>
-    <br />
-    <div style="width: 900px;">
+};
 
+});
+</script>
 
-
-      <!-- <marked-element markdown="{{marked}}">
-        <div class="markdown-html"></div>
-      </marked-element> -->
-
-      <div >
-        <template id="tag" is="dom-bind">
-          <px-datetime-range-field
-            id="range"
-            range="{{range}}"
-            date-format="{{dateFormat}}"
-            time-format="{{timeFormat}}"
-            show-buttons="{{showButtons}}"
-            block-future-dates="{{blockFutureDates}}"
-            hide-time="{{hideTime}}"
-            hide-date="{{hideDate}}"
-            show-time-zone="{{showTimeZone}}"
-            is-valid="{{isValid}}"
-            time-zone="{{timeZone}}">
-          </px-datetime-range-field>
-        </template>
-      </div>
-    </div>
-  </div>
-<device-layout-viewer device="all" src="https://www.polymer-project.org/"></device-layout-viewer>
-
-  <script type="text/javascript">
-
-
-
-
-
-    document.addEventListener('WebComponentsReady', function() {
-      var tag = document.querySelector('#tag').outerHTML;
-      var tem = tag.replace('<template>','').replace('</template>','');
-      console.log(tem);
-      var counter = 0,
-          span = document.getElementById('counter'),
-          range = document.getElementById('range'),
-          textArea = document.getElementById('textArea'),
-          dateFormat = document.getElementById('dateFormat'),
-          timeFormat = document.getElementById('timeFormat');
-
-      toggleButtons.checked = range.showButtons;
-      dateFormat.value = range.dateFormat;
-      timeFormat.value = range.timeFormat;
-      range.range = {
-          "from": "2010-12-14T02:00:00Z",
-          "to": "2012-02-11T15:00:00Z"
-        };
-
-      range.addEventListener('px-datetime-range-submitted', function(evt) {
-        counter++;
-        span.innerHTML = '<strong>px-datetime-range-submitted fired ' +
-         counter + ' time, last: from: ' + evt.detail.range.from + ', to: ' +
-          evt.detail.range.to + '<strong>';
-      });
-
-    });
-
-  </script>
 </body>
 </html>
