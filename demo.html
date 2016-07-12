@@ -12,7 +12,8 @@
   <link rel="icon" href="px-favicon.png" type="image/x-icon"/>
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
-
+  <link rel="import" href="../polymer-font-awesome/polymer-font-awesome.html">
+  <link rel="import" href="demo_clipboard.html">
   <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
 
   </head>
@@ -97,8 +98,8 @@
         </div>
         <div>More info on date and time format at <a href="http://momentjs.com/docs/#/parsing/string-format/" target="_blank" class="actionable">momentjs</a></div>
         <p class="epsilon">Readonly Properties</p>
-        <div>Is Valid:
-          <input type="checkbox" disabled checked="{{isValid::change}}">
+        <div><label for="isValid"><input type="checkbox" disabled checked="{{elemProps.isValid::change}}" id="isValid"> Is Valid</label>
+
         </div>
       </div>
 
@@ -107,25 +108,25 @@
         <br />
         <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
         <div>
-          Current range object: From: <strong>{{range.from}}</strong> To: <strong>{{range.to}}</strong>
+          Current range object: From: <strong>{{elemProps.range.from}}</strong> To: <strong>{{elemProps.range.to}}</strong>
         </div>
         <br />
         <px-datetime-range-field
           id="range"
-          range="{{range}}"
-          date-format="{{dateFormat}}"
-          time-format="{{timeFormat}}"
-          show-buttons="{{showButtons}}"
-          block-future-dates="{{blockFutureDates}}"
-          hide-time="{{hideTime}}"
-          hide-date="{{hideDate}}"
-          show-time-zone="{{showTimeZone}}"
-          is-valid="{{isValid}}"
-          time-zone="{{timeZone}}">
+          range={{elemProps.range}}
+          date-format="{{elemProps.dateFormat}}"
+          time-format="{{elemProps.timeFormat}}"
+          show-buttons="{{elemProps.showButtons}}"
+          block-future-dates="{{elemProps.blockFutureDates}}"
+          hide-time="{{elemProps.hideTime}}"
+          hide-date="{{elemProps.hideDate}}"
+          show-time-zone="{{elemProps.showTimeZone}}"
+          is-valid="{{elemProps.isValid}}"
+          time-zone="{{elemProps.timeZone}}">
         </px-datetime-range-field>
       </div>
     </div>
-
+<iron-icon icon="polymer-font-awesome:fa-clipboard" id="copy"></iron-icon>
 <px-demo-snippet
   element-properties={{elemProps}}
   element-name="px-datetime-range-field">
@@ -135,10 +136,10 @@
 window.addEventListener('WebComponentsReady', function() {
   console.log("wcr");
 var template = document.querySelector('template[is=dom-bind]'),
-    range = {"from":"2016-07-07T23:14:18+00:00", "to":"2016-08-07T23:14:18+00:00"};
+    range = {"from": "2016-07-01T17:09:06.540Z", "to": "2016-07-08T17:09:06.541Z"};
 
 template.elemProps = {
-  "range":JSON.stringify(range),
+  "range":range,
   "dateFormat":"YYYY/MM/DD",
   "timeFormat":"hh:mm:ss A",
   "showButtons":false,
@@ -148,8 +149,9 @@ template.elemProps = {
   "showTimeZone":"text",
   "isValid":true,
   "timeZone":"America/Los_Angeles"
-
 };
+
+var clipboard = new Clipboard('.copy');
 
 });
 </script>
