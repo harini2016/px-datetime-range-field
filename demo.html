@@ -54,7 +54,7 @@
     <br />
 
     <!-- mega demo -->
-    <div style="position: relative;" class="mega-demo u-ph++ u-pb++ flex flex--left flex--wrap">
+    <div style="position: relative;" class="mega-demo u-ph++ u-pb++ flex flex--right flex--wrap">
 
       <!-- Properties -->
       <div class="properties u-ph+ u-pb+  u-mt++ u-mr++">
@@ -103,34 +103,42 @@
         </div>
       </div>
 
-      <!-- demo -->
-      <div class="demo u-ph+ u-pb+ u-mt++">
-        <br />
-        <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
-        <div>
-          Current range object: From: <strong>{{elemProps.range.from}}</strong> To: <strong>{{elemProps.range.to}}</strong>
+      <div class=" demoContainer">
+        <!-- demo -->
+        <div class="flex flex--col">
+          <div class="flex__item demo u-ph+ u-pb+ u-mt++">
+            <br />
+            <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
+            <div>
+              Current range object: From: <strong>{{elemProps.range.from}}</strong> To: <strong>{{elemProps.range.to}}</strong>
+            </div>
+            <br />
+            <px-datetime-range-field
+              id="range"
+              range={{elemProps.range}}
+              date-format="{{elemProps.dateFormat}}"
+              time-format="{{elemProps.timeFormat}}"
+              show-buttons="{{elemProps.showButtons}}"
+              block-future-dates="{{elemProps.blockFutureDates}}"
+              hide-time="{{elemProps.hideTime}}"
+              hide-date="{{elemProps.hideDate}}"
+              show-time-zone="{{elemProps.showTimeZone}}"
+              is-valid="{{elemProps.isValid}}"
+              time-zone="{{elemProps.timeZone}}">
+            </px-datetime-range-field>
+          </div>
+          <div class="flex__item">
+            <px-demo-snippet
+              element-properties={{elemProps}}
+              element-name="px-datetime-range-field">
+            </px-demo-snippet>
+          </div>
+                </div>
         </div>
-        <br />
-        <px-datetime-range-field
-          id="range"
-          range={{elemProps.range}}
-          date-format="{{elemProps.dateFormat}}"
-          time-format="{{elemProps.timeFormat}}"
-          show-buttons="{{elemProps.showButtons}}"
-          block-future-dates="{{elemProps.blockFutureDates}}"
-          hide-time="{{elemProps.hideTime}}"
-          hide-date="{{elemProps.hideDate}}"
-          show-time-zone="{{elemProps.showTimeZone}}"
-          is-valid="{{elemProps.isValid}}"
-          time-zone="{{elemProps.timeZone}}">
-        </px-datetime-range-field>
-      </div>
     </div>
+
 <iron-icon icon="polymer-font-awesome:fa-clipboard" id="copy"></iron-icon>
-<px-demo-snippet
-  element-properties={{elemProps}}
-  element-name="px-datetime-range-field">
-</px-demo-snippet>
+
   </template>
 <script>
 window.addEventListener('WebComponentsReady', function() {
