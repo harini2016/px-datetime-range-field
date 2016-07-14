@@ -95,7 +95,11 @@ $inuit-enable-input--regular : true;
     padding: 0;
     margin-left: 0;
   }
-
+}
+.api {
+  width:80%;
+  margin:0 auto;
+  max-width:1200px;
 }
 // Trumps
 $inuit-enable-margins : true;

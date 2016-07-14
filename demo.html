@@ -54,9 +54,8 @@
   		</div>
   	</div>
     <br />
-
     <!-- mega demo -->
-    <div style="position: relative;" class="mega-demo u-ph++ u-pb++ flex flex--right flex--wrap">
+    <div style="position: relative;" class="mega-demo u-ph++ u-pb++ flex flex--right flex--wrap" id="defaultTab">
 
       <!-- Properties -->
       <div class="properties u-ph+ u-pb+  u-mt++ u-mr++">
@@ -138,7 +137,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex--col" style="width:80%;margin:0 auto;max-width:1200px;">
+    <div class="flex flex--col api" >
       <div class="flex">
         <div class="flex__item">
           <div class="flex flex--col childrenAssociated">
@@ -201,6 +200,10 @@ window.addEventListener('WebComponentsReady', function() {
       "isValid":true,
       "timeZone":"America/Los_Angeles"
     };
+
+    var defaultTab = document.querySelector('#defaultTab');
+
+    template.defaultTab= defaultTab;
 });
 </script>
 

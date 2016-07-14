@@ -1104,6 +1104,11 @@ textarea {
   padding: 0;
   margin-left: 0; }
 
+.api {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px; }
+
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro
  * level.
