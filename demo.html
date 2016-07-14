@@ -8,6 +8,8 @@
   <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
   <link rel="import" href="../px-theme/px-theme.html"/>
   <link rel="import" href="../iron-ajax/iron-ajax.html"/>
+  <link rel="import" href="../px-api-viewer/px-api-viewer.html" />
+  <link rel="import" href="../iron-component-page/iron-component-page.html"/>
   <link rel="import" href="px-datetime-range-field.html"/>
   <link rel="icon" href="px-favicon.png" type="image/x-icon"/>
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
@@ -103,7 +105,7 @@
         </div>
       </div>
 
-      <div class=" demoContainer">
+      <div class="demoContainer">
         <!-- demo -->
         <div class="flex flex--col">
           <div class="flex__item demo u-ph+ u-pb+ u-mt++">
@@ -133,34 +135,72 @@
               element-name="px-datetime-range-field">
             </px-demo-snippet>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex--col" style="width:80%;margin:0 auto;max-width:1200px;">
+      <div class="flex">
+        <div class="flex__item">
+          <div class="flex flex--col childrenAssociated">
+            <div class="componentHeader">Children Component</div>
+            <div class="componentList">
+              <ul>
+                <li><a href="">item1</a></li>
+                <li><a href="">item2</a></li>
+                <li><a href="">item3</a></li>
+                <li><a href="">item4</a></li>
+                <li><a href="">item5</a></li>
+                <li><a href="">item6</a></li>
+                <li><a href="">item7</a></li>
+                <li><a href="">item8</a></li>
+                <li><a href="">item9</a></li>
+                <li><a href="">item10</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="flex__item">
+          <div class="flex flex--col">
+            <div class="componentHeader">Associated Component</div>
+            <div class="componentList">
+              <ul>
+                <li><a href="">item1</a></li>
+                <li><a href="">item2</a></li>
+                <li><a href="">item3</a></li>
+                <li><a href="">item4</a></li>
+                <li><a href="">item5</a></li>
+                <li><a href="">item6</a></li>
+                <li><a href="">item7</a></li>
+                <li><a href="">item8</a></li>
+                <li><a href="">item9</a></li>
+                <li><a href="">item10</a></li>
+              </ul>
+            </div>
+          </div>
                 </div>
         </div>
+      <div>
+        <px-api-viewer source="px-datetime-range-field"></px-api-viewer>
+      </div>
     </div>
-
-<iron-icon icon="polymer-font-awesome:fa-clipboard" id="copy"></iron-icon>
-
   </template>
 <script>
 window.addEventListener('WebComponentsReady', function() {
-  console.log("wcr");
-var template = document.querySelector('template[is=dom-bind]'),
-    range = {"from": "2016-07-01T17:09:06.540Z", "to": "2016-07-08T17:09:06.541Z"};
+  var template = document.querySelector('template[is=dom-bind]'),
+      range = {"from": "2016-07-01T17:09:09.540Z", "to": "2016-07-08T17:09:06.541Z"};
 
-template.elemProps = {
-  "range":range,
-  "dateFormat":"YYYY/MM/DD",
-  "timeFormat":"hh:mm:ss A",
-  "showButtons":false,
-  "blockFutureDates":true,
-  "hideTime":false,
-  "hideDate":false,
-  "showTimeZone":"text",
-  "isValid":true,
-  "timeZone":"America/Los_Angeles"
-};
-
-var clipboard = new Clipboard('.copy');
-
+  template.elemProps = {
+      "range":range,
+      "dateFormat":"YYYY/MM/DD",
+      "timeFormat":"hh:mm:ss A",
+      "showButtons":false,
+      "blockFutureDates":true,
+      "hideTime":false,
+      "hideDate":false,
+      "showTimeZone":"text",
+      "isValid":true,
+      "timeZone":"America/Los_Angeles"
+    };
 });
 </script>
 

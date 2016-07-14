@@ -1082,11 +1082,27 @@ textarea {
   -ms-flex-preferred-size: 150px;
       flex-basis: 150px; }
 
+.componentHeader {
+  border-bottom: 1px solid #d1d0d8;
+  font-size: 1.6666666667rem; }
+
+.childrenAssociated :first-of-type {
+  margin-right: 3.3333333333rem; }
+
 .demo {
   -ms-flex-preferred-size: 400px;
       flex-basis: 400px;
   background: white;
   border: 1px solid #d1d0d8; }
+
+.componentList a {
+  color: #2886af; }
+
+.componentList ul {
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin-left: 0; }
 
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro

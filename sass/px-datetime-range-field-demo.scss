@@ -26,7 +26,7 @@ Predix branding rules go in px-rangepicker-predix.scss, not in this file.
 @import "px-normalize-design/_generic.normalize.scss";
 @import "px-box-sizing-design/_generic.box-sizing.scss";
 @import "px-helpers-design/_generic.helpers.scss";
-
+$predixBlue: #2886af;
 // Base
 @import "px-flexbox-design/_base.flexbox.scss";
 @import "px-viewport-design/_base.viewport.scss";
@@ -71,15 +71,32 @@ $inuit-enable-input--regular : true;
 .demoSnippet {
   flex-basis: 150px;
 }
-
+.componentHeader {
+  border-bottom: 1px solid $gray4;
+  font-size: calculateRem(25px);
+}
+.childrenAssociated {
+  :first-of-type {
+    margin-right: calculateRem(50px);
+  }
+}
 .demo{
-  // flex-shrink: 1;
-  //flex: 2 0 auto;
   flex-basis: 400px;
   background: $white;
   border: 1px solid $gray4;
 }
+.componentList {
+  a {
+    color: $predixBlue;
+  }
+  ul {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+  }
 
+}
 // Trumps
 $inuit-enable-margins : true;
 $inuit-enable-margins--tiny : true;
