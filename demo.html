@@ -73,31 +73,31 @@
             <div class="properties u-ph+ u-pb+  u-m++">
               <p class="epsilon">Properties</p>
               <div class="flex u-mb-">
-                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
+                <input id="toggleTime" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
                 <label for="toggleTime" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Hide time</div>
               </div>
               <div class="flex u-mb-">
-                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
+                <input id="toggleDate" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
                 <label for="toggleDate" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Hide date</div>
               </div>
               <div class="flex u-mb-">
-                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
+                <input id="toggleButtons" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
                 <label for="toggleButtons" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Show buttons</div>
               </div>
               <div class="flex u-mb-">
-                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
+                <input id="toggleFutureDates" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
                 <label for="toggleFutureDates" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Block future dates</div>
               </div>
-              <div class="u-mb-">Date format: <input  class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}" /></div>
-              <div class="u-mb-">Time format: <input  class="text-input" type="text" placeholder="hh:mm:ss A" value="{{item.timeFormat::input}}" /></div>
-              <div class="u-mb-">Time zone: <input  class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}" /></div>
+              <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}" /></div>
+              <div class="u-mb-">Time format: <input id="timeFormat" class="text-input" type="text" placeholder="hh:mm:ss A" value="{{item.timeFormat::input}}" /></div>
+              <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}" /></div>
               <div class="u-mb-">Show time zone:
                 <div style="width: 100%;">
-                  <px-dropdown value="{{item.showTimeZone}}" display-value="text">
+                  <px-dropdown id="showTimeZone" value="{{item.showTimeZone}}" display-value="text">
                     <px-dropdown-content
                       items='[
                         {"key":"one", "val": "none"},
