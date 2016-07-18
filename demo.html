@@ -55,145 +55,151 @@
   		</div>
   	</div>
     <br />
-    <px-tab-set selected="{{selected}}">
-      <px-tab>Tab 1</px-tab>
-      <px-tab>Tab 2</px-tab>
-      <px-tab>Tab 3</px-tab>
-    </px-tab-set>
-    <px-tab-pages selected="{{selected}}">
-      <template is="dom-repeat" items="{{optionsArray}}">
-      <section class="tab-page">
+
     <!-- mega demo -->
-    <div style="position: relative;" class="mega-demo u-ph++ u-pb++ flex flex--right flex--wrap" id="defaultTab">
-
-      <!-- Properties -->
-      <div class="properties u-ph+ u-pb+  u-mt++ u-mr++">
-        <p class="epsilon">Properties</p>
-        <div class="flex u-mb-">
-          <input id="toggleTime" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
-          <label for="toggleTime" class="toggle__label toggle__label--small"></label>
-          <div class="u-ml-">Hide time</div>
-        </div>
-        <div class="flex u-mb-">
-          <input id="toggleDate" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
-          <label for="toggleDate" class="toggle__label toggle__label--small"></label>
-          <div class="u-ml-">Hide date</div>
-        </div>
-        <div class="flex u-mb-">
-          <input id="toggleButtons" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
-          <label for="toggleButtons" class="toggle__label toggle__label--small"></label>
-          <div class="u-ml-">Show buttons</div>
-        </div>
-        <div class="flex u-mb-">
-          <input id="toggleFutureDates" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
-          <label for="toggleFutureDates" class="toggle__label toggle__label--small"></label>
-          <div class="u-ml-">Block future dates</div>
-        </div>
-        <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}"></input></div>
-        <div class="u-mb-">Time format: <input id="timeFormat" class="text-input" type="text" placeholder="hh:mm:ss A" value="{{item.timeFormat::input}}"></input></div>
-        <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}"></input></div>
-        <div class="u-mb-">Show time zone:
-          <div style="width: 100%;">
-            <px-dropdown id="showTimeZone" value="{{item.showTimeZone}}" display-value="text">
-              <px-dropdown-content
-                items='[
-                  {"key":"one", "val": "none"},
-                  {"key":"two", "val": "dropdown"},
-                  {"key":"three", "val": "extendedDropdown"},
-                  {"key":"four", "val": "text"},
-                  {"key":"five", "val": "abbreviatedText"}]'>
-              </px-dropdown-content>
-            </px-dropdown>
-          </div>
-        </div>
-        <div>More info on date and time format at <a href="http://momentjs.com/docs/#/parsing/string-format/" target="_blank" class="actionable">momentjs</a></div>
-        <p class="epsilon">Readonly Properties</p>
-        <div><label for="isValid"><input type="checkbox" disabled checked="{{item.isValid::change}}" id="isValid"> Is Valid</label>
-
-        </div>
+    <div style="position: relative;" class="u-pb++ flex flex--col" id="defaultTab">
+      <div class="tabContainer u-pt++ u-pl++">
+        <px-tab-set selected="{{selected}}" bare no-bottom-border>
+          <px-tab>Configuration 1</px-tab>
+          <px-tab>Configuration 2</px-tab>
+          <px-tab>Configuration 3</px-tab>
+        </px-tab-set>
       </div>
-
-      <div class="demoContainer">
-        <!-- demo -->
-        <div class="flex flex--col">
-          <div class="flex__item demo u-ph+ u-pb+ u-mt++">
-            <br />
-            <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
-            <div>
-              Current range object: From: <strong>{{item.range.from}}</strong> To: <strong>{{item.range.to}}</strong>
-            </div>
-            <br />
-            <px-datetime-range-field
-              id="range"
-              range={{item.range}}
-              date-format="{{item.dateFormat}}"
-              time-format="{{item.timeFormat}}"
-              show-buttons="{{item.showButtons}}"
-              block-future-dates="{{item.blockFutureDates}}"
-              hide-time="{{item.hideTime}}"
-              hide-date="{{item.hideDate}}"
-              show-time-zone="{{item.showTimeZone}}"
-              is-valid="{{item.isValid}}"
-              time-zone="{{item.timeZone}}">
-            </px-datetime-range-field>
-          </div>
-          <div class="flex__item">
-            <px-demo-snippet
-              element-properties={{item}}
-              element-name="px-datetime-range-field">
-            </px-demo-snippet>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex--col api" >
-      <div class="flex">
-        <div class="flex__item">
-          <div class="flex flex--col childrenAssociated">
-            <div class="componentHeader">Children Component</div>
-            <div class="componentList">
-              <ul>
-                <li><a href="">item1</a></li>
-                <li><a href="">item2</a></li>
-                <li><a href="">item3</a></li>
-                <li><a href="">item4</a></li>
-                <li><a href="">item5</a></li>
-                <li><a href="">item6</a></li>
-                <li><a href="">item7</a></li>
-                <li><a href="">item8</a></li>
-                <li><a href="">item9</a></li>
-                <li><a href="">item10</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="flex__item">
-          <div class="flex flex--col">
-            <div class="componentHeader">Associated Component</div>
-            <div class="componentList">
-              <ul>
-                <li><a href="">item1</a></li>
-                <li><a href="">item2</a></li>
-                <li><a href="">item3</a></li>
-                <li><a href="">item4</a></li>
-                <li><a href="">item5</a></li>
-                <li><a href="">item6</a></li>
-                <li><a href="">item7</a></li>
-                <li><a href="">item8</a></li>
-                <li><a href="">item9</a></li>
-                <li><a href="">item10</a></li>
-              </ul>
-            </div>
-          </div>
+      <px-tab-pages selected="{{selected}}">
+        <template is="dom-repeat" items="{{optionsArray}}">
+          <section class="tab-page flex flex--right flex--wrap">
+            <div class="mega-demo flex u-pb++">
+            <!-- Properties -->
+            <div class="properties u-ph+ u-pb+  u-m++">
+              <p class="epsilon">Properties</p>
+              <div class="flex u-mb-">
+                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
+                <label for="toggleTime" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Hide time</div>
+              </div>
+              <div class="flex u-mb-">
+                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
+                <label for="toggleDate" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Hide date</div>
+              </div>
+              <div class="flex u-mb-">
+                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
+                <label for="toggleButtons" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Show buttons</div>
+              </div>
+              <div class="flex u-mb-">
+                <input  class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
+                <label for="toggleFutureDates" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Block future dates</div>
+              </div>
+              <div class="u-mb-">Date format: <input  class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}" /></div>
+              <div class="u-mb-">Time format: <input  class="text-input" type="text" placeholder="hh:mm:ss A" value="{{item.timeFormat::input}}" /></div>
+              <div class="u-mb-">Time zone: <input  class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}" /></div>
+              <div class="u-mb-">Show time zone:
+                <div style="width: 100%;">
+                  <px-dropdown value="{{item.showTimeZone}}" display-value="text">
+                    <px-dropdown-content
+                      items='[
+                        {"key":"one", "val": "none"},
+                        {"key":"two", "val": "dropdown"},
+                        {"key":"three", "val": "extendedDropdown"},
+                        {"key":"four", "val": "text"},
+                        {"key":"five", "val": "abbreviatedText"}]'>
+                    </px-dropdown-content>
+                  </px-dropdown>
                 </div>
-        </div>
-      <div>
-        <px-api-viewer source="px-datetime-range-field"></px-api-viewer>
-      </div>
-    </div>
-  </section>
+              </div>
+              <div>More info on date and time format at <a href="http://momentjs.com/docs/#/parsing/string-format/" target="_blank" class="actionable">momentjs</a></div>
+              <p class="epsilon">Readonly Properties</p>
+              <div><label for="isValid"><input type="checkbox" disabled checked="{{item.isValid::change}}" id="isValid"> Is Valid</label>
+              </div>
+            </div>
+
+            <div class="demoContainer u-mr++">
+              <!-- demo -->
+              <div class="flex flex--col">
+                <div class="flex__item demo u-ph+ u-pb+ u-mt++">
+                  <br />
+                  <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
+                  <div>
+                    Current range object: From: <strong>{{item.range.from}}</strong> To: <strong>{{item.range.to}}</strong>
+                  </div>
+                  <br />
+                  <px-datetime-range-field
+                    id="range"
+                    range={{item.range}}
+                    date-format="{{item.dateFormat}}"
+                    time-format="{{item.timeFormat}}"
+                    show-buttons="{{item.showButtons}}"
+                    block-future-dates="{{item.blockFutureDates}}"
+                    hide-time="{{item.hideTime}}"
+                    hide-date="{{item.hideDate}}"
+                    show-time-zone="{{item.showTimeZone}}"
+                    is-valid="{{item.isValid}}"
+                    time-zone="{{item.timeZone}}">
+                  </px-datetime-range-field>
+                </div>
+                <div class="flex__item">
+                  <px-demo-snippet
+                    element-properties={{item}}
+                    element-name="px-datetime-range-field">
+                  </px-demo-snippet>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background-color:white;">
+            <div class="flex flex--col api u-mt++" >
+              <div class="flex">
+                <div class="flex__item">
+                  <div class="flex flex--col childrenAssociated">
+                    <div class="componentHeader">Children Component</div>
+                    <div class="componentList">
+                      <ul>
+                        <li><a href="">item1</a></li>
+                        <li><a href="">item2</a></li>
+                        <li><a href="">item3</a></li>
+                        <li><a href="">item4</a></li>
+                        <li><a href="">item5</a></li>
+                        <li><a href="">item6</a></li>
+                        <li><a href="">item7</a></li>
+                        <li><a href="">item8</a></li>
+                        <li><a href="">item9</a></li>
+                        <li><a href="">item10</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex__item">
+                  <div class="flex flex--col">
+                    <div class="componentHeader">Associated Component</div>
+                    <div class="componentList">
+                      <ul>
+                        <li><a href="">item1</a></li>
+                        <li><a href="">item2</a></li>
+                        <li><a href="">item3</a></li>
+                        <li><a href="">item4</a></li>
+                        <li><a href="">item5</a></li>
+                        <li><a href="">item6</a></li>
+                        <li><a href="">item7</a></li>
+                        <li><a href="">item8</a></li>
+                        <li><a href="">item9</a></li>
+                        <li><a href="">item10</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <px-api-viewer source="px-datetime-range-field"></px-api-viewer>
+              </div>
+            </div>
+          </div>
+        </section>
+      </template>
+    </px-tab-pages>
+  </div>
 </template>
-  </template>
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
@@ -224,7 +230,7 @@ window.addEventListener('WebComponentsReady', function() {
       "blockFutureDates":true,
       "hideTime":true,
       "hideDate":false,
-      "showTimeZone":"text",
+      "showTimeZone":showTimeZone,
       "isValid":true,
       "timeZone":timeZone
     },
@@ -236,7 +242,7 @@ window.addEventListener('WebComponentsReady', function() {
       "blockFutureDates":false,
       "hideTime":false,
       "hideDate":true,
-      "showTimeZone":"text",
+      "showTimeZone":showTimeZone,
       "isValid":true,
       "timeZone":timeZone
     }

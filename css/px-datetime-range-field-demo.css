@@ -1063,14 +1063,15 @@ textarea {
   margin-bottom: 1.3333333333rem; }
 
 .mega-demo {
-  background: #f7f7fc; }
+  background: #f7f7fc;
+  width: 100%; }
 
 .description-text {
-  max-width: 700px; }
+  max-width: 46.6666666667rem; }
 
 .properties {
-  -ms-flex-preferred-size: 250px;
-      flex-basis: 250px;
+  -ms-flex-preferred-size: 16.6666666667rem;
+      flex-basis: 16.6666666667rem;
   background: white;
   border: 1px solid #d1d0d8; }
 
@@ -1079,8 +1080,8 @@ textarea {
       flex: 1 1; }
 
 .demoSnippet {
-  -ms-flex-preferred-size: 150px;
-      flex-basis: 150px; }
+  -ms-flex-preferred-size: 10rem;
+      flex-basis: 10rem; }
 
 .componentHeader {
   border-bottom: 1px solid #d1d0d8;
@@ -1090,8 +1091,8 @@ textarea {
   margin-right: 3.3333333333rem; }
 
 .demo {
-  -ms-flex-preferred-size: 400px;
-      flex-basis: 400px;
+  -ms-flex-preferred-size: 26.6666666667rem;
+      flex-basis: 26.6666666667rem;
   background: white;
   border: 1px solid #d1d0d8; }
 
@@ -1107,7 +1108,14 @@ textarea {
 .api {
   width: 80%;
   margin: 0 auto;
-  max-width: 1200px; }
+  max-width: 80rem; }
+
+.tabContainer {
+  -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+  height: 4rem;
+  margin-top: 2.3333333333rem;
+  background: #f7f7fc; }
 
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro

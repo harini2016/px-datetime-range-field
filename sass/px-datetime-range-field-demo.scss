@@ -51,15 +51,15 @@ $inuit-enable-input--regular : true;
 // Component
 .mega-demo{
   background: $gray1;
-
+  width: 100%;
 }
 
 .description-text{
-  max-width: 700px;
+  max-width: calculateRem(700px);
 }
 
 .properties{
-  flex-basis: 250px;
+  flex-basis: calculateRem(250px);
   background: $white;
   border: 1px solid $gray4;
 }
@@ -69,7 +69,7 @@ $inuit-enable-input--regular : true;
 }
 
 .demoSnippet {
-  flex-basis: 150px;
+  flex-basis: calculateRem(150px);
 }
 .componentHeader {
   border-bottom: 1px solid $gray4;
@@ -81,7 +81,7 @@ $inuit-enable-input--regular : true;
   }
 }
 .demo{
-  flex-basis: 400px;
+  flex-basis: calculateRem(400px);
   background: $white;
   border: 1px solid $gray4;
 }
@@ -99,7 +99,13 @@ $inuit-enable-input--regular : true;
 .api {
   width:80%;
   margin:0 auto;
-  max-width:1200px;
+  max-width:calculateRem(1200px);
+}
+.tabContainer {
+  flex:0 0 100%;
+  height:calculateRem(60px);
+  margin-top:calculateRem(35px);
+  background: $gray1;
 }
 // Trumps
 $inuit-enable-margins : true;
