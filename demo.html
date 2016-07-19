@@ -8,7 +8,6 @@
   <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../px-theme/px-theme.html"/>
-  <link rel="import" href="../iron-ajax/iron-ajax.html"/>
   <link rel="import" href="../px-api-viewer/px-api-viewer.html" />
   <link rel="import" href="../px-tabs/px-tab-set.html" />
   <link rel="import" href="../iron-component-page/iron-component-page.html"/>
@@ -26,13 +25,6 @@
   <!-- Wrap elements with auto-binding template to -->
   <!-- allow use of Polymer bindings in main document -->
   <template id="just-for-demo" is="dom-bind" >
-
-    <iron-ajax
-      auto
-      url="demo-data/sample-data.json"
-      last-response="{{sampleData}}"
-      handle-as="json">
-    </iron-ajax>
 
     <!-- discription -->
     <div class="hero u-p++ text--shadow">

@@ -110,6 +110,14 @@ $inuit-enable-input--regular : true;
   margin-top:calculateRem(35px);
   background: $gray1;
 }
+@media screen  and (max-width: calculateRem(672px)){
+  .mega-demo {
+    flex-direction: column;
+  }
+  .demoContainer {
+    margin-left: calculateRem(30px);
+  }
+}
 // Trumps
 $inuit-enable-margins : true;
 $inuit-enable-margins--tiny : true;
