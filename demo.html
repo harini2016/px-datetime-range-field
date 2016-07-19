@@ -60,9 +60,9 @@
     <div style="position: relative;" class="u-pb++ flex flex--col" id="defaultTab">
       <div class="tabContainer u-pt++ u-pl++">
         <px-tab-set selected="{{selected}}" bare no-bottom-border>
-          <px-tab>Configuration 1</px-tab>
-          <px-tab>Configuration 2</px-tab>
-          <px-tab>Configuration 3</px-tab>
+          <template is="dom-repeat" items="{{optionsArray}}">
+            <px-tab>Configuration {{indexPlusOne(index)}}</px-tab>
+          </template>
         </px-tab-set>
       </div>
       <px-tab-pages selected="{{selected}}">
@@ -73,23 +73,23 @@
             <div class="properties u-ph+ u-pb+  u-m++">
               <p class="epsilon">Properties</p>
               <div class="flex u-mb-">
-                <input id="toggleTime" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
-                <label for="toggleTime" class="toggle__label toggle__label--small"></label>
+                <input id="toggleTime{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
+                <label for$="toggleTime{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Hide time</div>
               </div>
               <div class="flex u-mb-">
-                <input id="toggleDate" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
-                <label for="toggleDate" class="toggle__label toggle__label--small"></label>
+                <input id="toggleDate{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
+                <label for$="toggleDate{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Hide date</div>
               </div>
               <div class="flex u-mb-">
-                <input id="toggleButtons" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
-                <label for="toggleButtons" class="toggle__label toggle__label--small"></label>
+                <input id="toggleButtons{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
+                <label for$="toggleButtons{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Show buttons</div>
               </div>
               <div class="flex u-mb-">
-                <input id="toggleFutureDates" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
-                <label for="toggleFutureDates" class="toggle__label toggle__label--small"></label>
+                <input id="toggleFutureDates{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.blockFutureDates::change}}">
+                <label for$="toggleFutureDates{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Block future dates</div>
               </div>
               <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}" /></div>
@@ -150,7 +150,7 @@
           </div>
           <div style="background-color:white;">
             <div class="flex flex--col api u-mt++" >
-              <div class="flex">
+              <!-- <div class="flex">
                 <div class="flex__item">
                   <div class="flex flex--col childrenAssociated">
                     <div class="componentHeader">Children Component</div>
@@ -189,7 +189,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div>
                 <px-api-viewer source="px-datetime-range-field"></px-api-viewer>
               </div>
@@ -214,21 +214,9 @@ window.addEventListener('WebComponentsReady', function() {
       "range":range,
       "dateFormat":dateFormat,
       "timeFormat":timeFormat,
-      "showButtons":false,
-      "blockFutureDates":true,
-      "hideTime":false,
-      "hideDate":false,
-      "showTimeZone":showTimeZone,
-      "isValid":true,
-      "timeZone":timeZone
-    },
-    {
-      "range":range,
-      "dateFormat":dateFormat,
-      "timeFormat":"hh:mm:ss A",
       "showButtons":true,
       "blockFutureDates":true,
-      "hideTime":true,
+      "hideTime":false,
       "hideDate":false,
       "showTimeZone":showTimeZone,
       "isValid":true,
@@ -245,12 +233,27 @@ window.addEventListener('WebComponentsReady', function() {
       "showTimeZone":showTimeZone,
       "isValid":true,
       "timeZone":timeZone
+    },
+    {
+      "range":range,
+      "dateFormat":dateFormat,
+      "timeFormat":timeFormat,
+      "showButtons":false,
+      "blockFutureDates":true,
+      "hideTime":false,
+      "hideDate":false,
+      "showTimeZone":showTimeZone,
+      "isValid":true,
+      "timeZone":timeZone
     }
   ];
 
+    var indexPlusOne = function(num) {
+      return num + 1;
+    };
     template.selected = "0";
     template.optionsArray = optionsArray;
-
+    template.indexPlusOne = indexPlusOne;
 });
 </script>
 

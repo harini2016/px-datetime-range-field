@@ -1073,7 +1073,10 @@ textarea {
   -ms-flex-preferred-size: 16.6666666667rem;
       flex-basis: 16.6666666667rem;
   background: white;
-  border: 1px solid #d1d0d8; }
+  border: 1px solid #d1d0d8;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 39.3333333333rem; }
 
 .demoContainer {
   -ms-flex: 1 1;
