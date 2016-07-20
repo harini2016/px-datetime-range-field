@@ -1,3 +1,7 @@
+v0.3.5
+==================
+* updated range error message
+
 v0.3.4
 ==================
 * added onerror to shield images.
