@@ -1,3 +1,7 @@
+v0.3.2
+==================
+* fixed merge conflicts
+
 v0.3.1
 ==================
 * updated demo page
