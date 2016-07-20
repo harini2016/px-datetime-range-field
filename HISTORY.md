@@ -1,3 +1,7 @@
+v0.3.3
+==================
+* updated mega demo configurations and properties margin
+
 v0.3.2
 ==================
 * fixed merge conflicts

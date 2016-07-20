@@ -60,7 +60,7 @@
           <section class="tab-page flex flex--right flex--wrap">
             <div class="mega-demo flex u-pb++">
             <!-- Properties -->
-            <div class="properties u-ph+ u-pb+  u-m++">
+            <div class="properties u-ph+ u-pb+ u-mt++ u-mh++" id="properties">
               <p class="epsilon">Properties</p>
               <div class="flex u-mb-">
                 <input id="toggleTime{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
@@ -87,7 +87,7 @@
               <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}" /></div>
               <div class="u-mb-">Show time zone:
                 <div style="width: 100%;">
-                  <px-dropdown id="showTimeZone" value="{{item.showTimeZone}}" display-value="text">
+                  <px-dropdown id="showTimeZone" value="{{item.showTimeZone}}" display-value="{{item.showTimeZone}}" bound-target="properties">
                     <px-dropdown-content
                       items='[
                         {"key":"one", "val": "none"},
@@ -150,45 +150,43 @@
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
-      range = {"from": "2016-07-01T17:09:09.540Z", "to": "2016-07-08T17:09:06.541Z"},
-      dateFormat = "YYYY/MM/DD",
-      timeFormat = "hh:mm:ss A",
-      showTimeZone = "text",
-      timeZone ="America/Los_Angeles";
+      range = {"from": "2016-07-01T01:00:00.000Z", "to": "2016-07-08T14:00:00.000Z"},
+      dateFormat = ["YYYY/MM/DD","MM/DD/YY"],
+      timeFormat = ["hh:mm:ss A","HH:mm:ss.SSS"],
+      showTimeZone = ["text","dropdown"],
+      timeZone =["UTC","America/Los_Angeles"];
 
   var optionsArray = [
     {
       "range":range,
-      "dateFormat":dateFormat,
-      "timeFormat":timeFormat,
+      "dateFormat":dateFormat[0],
+      "timeFormat":timeFormat[0],
       "showButtons":true,
       "blockFutureDates":true,
       "hideTime":false,
       "hideDate":false,
-      "showTimeZone":showTimeZone,
-      "timeZone":timeZone
+      "showTimeZone":showTimeZone[0],
+      "timeZone":timeZone[0]
     },
     {
       "range":range,
-      "dateFormat":dateFormat,
-      "timeFormat":timeFormat,
+      "dateFormat":dateFormat[1],
       "showButtons":false,
       "blockFutureDates":false,
-      "hideTime":false,
-      "hideDate":true,
-      "showTimeZone":showTimeZone,
-      "timeZone":timeZone
+      "hideTime":true,
+      "hideDate":false,
+      "showTimeZone":showTimeZone[1],
+      "timeZone":timeZone[1]
     },
     {
       "range":range,
-      "dateFormat":dateFormat,
-      "timeFormat":timeFormat,
+      "timeFormat":timeFormat[1],
       "showButtons":false,
       "blockFutureDates":true,
       "hideTime":false,
-      "hideDate":false,
-      "showTimeZone":showTimeZone,
-      "timeZone":timeZone
+      "hideDate":true,
+      "showTimeZone":showTimeZone[0],
+      "timeZone":timeZone[0]
     }
   ];
 
