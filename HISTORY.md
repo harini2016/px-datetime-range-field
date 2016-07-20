@@ -1,3 +1,7 @@
+v0.3.4
+==================
+* added onerror to shield images.
+
 v0.3.3
 ==================
 * updated mega demo configurations and properties margin
