@@ -1,6 +1,10 @@
+v0.3.1
+==================
+* updated demo page
+
 v0.3.0
 ==================
-& Added blockPastDates
+* Added blockPastDates
 
 v0.2.0
 ==================
