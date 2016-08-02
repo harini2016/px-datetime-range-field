@@ -24,3 +24,7 @@ common/abstract rules go in px-datetime-range-field-sketch.scss, not in this fil
 .validation-container__icon--failed {
   color: $alert-red;
 }
+
+.to {
+  color: var(--px-datetime-range-field-to-color, $black);
+}
