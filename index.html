@@ -113,7 +113,7 @@
                 <div class="flex flex--col">
                   <div class="demo u-p+">
 
-                    <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
+                    <span id="counter{{indexPlusOne(index)}}"><strong>px-datetime-submitted</strong> fired <strong>0</strong> time(s)</span>
                     <div>
                       Current range object: From: <strong>{{item.range.from}}</strong> To: <strong>{{item.range.to}}</strong>
                     </div>
@@ -168,7 +168,7 @@
             <li>
               <a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
             </li>
-            <li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
+            <li>Copyright &copy; 2016 General Electric Company. All rights reserved.</li>
           </ul>
         </div>
       </div>
@@ -181,8 +181,8 @@ window.addEventListener('WebComponentsReady', function() {
       dateFormat = ["YYYY/MM/DD","MM/DD/YY"],
       timeFormat = ["hh:mm:ss A","HH:mm:ss.SSS"],
       showTimeZone = ["text","dropdown"],
-      year = new Date(),
-      timeZone =["UTC","America/Los_Angeles"];
+      timeZone =["UTC","America/Los_Angeles"],
+      counter = 0;
 
   var optionsArray = [
     {
@@ -222,12 +222,18 @@ window.addEventListener('WebComponentsReady', function() {
       return num + 1;
     };
 
-    year = year.getFullYear();
+    document.addEventListener('px-datetime-submitted', function(evt) {
+      counter++;
+      for(var i=1; i<=optionsArray.length; i++) {
+        var span = document.getElementById('counter'+i);
+        span.innerHTML = '<strong>px-datetime-submitted</strong> fired <strong>' + counter + '</strong> time(s)';
+      }
+    });
+
 
     template.selected = "0";
     template.optionsArray = optionsArray;
     template.indexPlusOne = indexPlusOne;
-    template.year = year;
 });
 </script>
 
