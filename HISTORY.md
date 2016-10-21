@@ -1,3 +1,7 @@
+v0.4.5
+==================
+* Update dependencies
+
 v0.4.4
 ==================
 * Latest demo snippet component & latest gulpfile
