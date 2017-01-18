@@ -1,3 +1,9 @@
+v0.5.3
+==================
+* Update to px-demo
+* removed demosass
+* Updated to cool grays
+
 v0.5.2
 ==================
 * Update colors design to pick up new colors
