@@ -1,6 +1,10 @@
+v0.5.5
+==================
+* fixed typo in component description
+
 v0.5.4
 ==================
-* moved theming style includes and updated ghp.sh 
+* moved theming style includes and updated ghp.sh
 * updated api for new colors
 
 v0.5.3
